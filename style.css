@@ -1,0 +1,199 @@
+html, body {
+	touch-action: manipulation;
+  overscroll-behavior: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+     /* Dark mode colors and gradient */
+  background-image: url(fondo1.png);
+  background-repeat: repeat;
+  /* Animation */
+  animation: move 175s linear infinite;
+}
+
+@keyframes move {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 400px 400px;
+  }
+}
+
+.chessBoard {
+  touch-action: pan-y; /* allow horizontal/vertical pointer interactions as needed */
+  -ms-touch-action: pan-y;
+  user-select: none;
+  height: 98%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  outline: 5px ridge #9C9B7A;
+  aspect-ratio: 1 / 1;
+    box-shadow: 0px 0px 30px #9C9B7A;
+}
+.square {
+  width:12.5%;
+  height: 12.5%;
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  outline: 1px inset black;
+}
+.white {
+  background-color: #FDDDAA;
+  background-image: url("wood.png");
+  background-repeat: repeat;
+}
+.white2 {
+  background-color: #ffc674;
+  background-image: url("wood.png");
+  background-repeat: repeat;
+}
+.black {
+  background-color: #9C9B7A;
+  background-image: url("wood.png");
+  background-repeat: repeat;
+}
+.black2 {
+  background-color: #a7a56b;
+  background-image: url("wood.png");
+  background-repeat: repeat;
+}
+.coordinate {
+  height:auto;
+  display:flex;
+  bottom: 4%;
+  left:4%;
+  position: absolute;
+  font-size: 12px;
+  font-weight: bold;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.rank {
+  top:4%;
+  right:4%;
+  left:auto;
+}
+.whiteText {
+  color:#f0d9b5;
+}
+.blackText {
+  color:#b58863;
+}
+.piece {
+	position: relative;
+  touch-action: none;
+  
+  user-select: none;
+  z-index: 100;
+  width:100%;
+  cursor: pointer;
+}
+.piece img {
+	pointer-events: none; /* allows touch events to reach parent div */
+  max-width: 100%;
+  width:100%;
+  height: auto;
+}
+
+.piece {
+  transition: transform 0.15s ease,
+              filter 0.15s ease;
+}
+
+.piece:hover {
+  transform: scale(1.08);
+  cursor: grab;
+}
+
+.piece:active {
+  transform: scale(1.1);
+  filter: drop-shadow(0px 8px 12px rgba(0,0,0,0.6));
+  cursor: grabbing;
+}
+.piece {
+  animation: pieceDrop 0.2s ease;
+}
+
+@keyframes pieceDrop {
+  0%   { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+
+#alert {
+  position: fixed;
+  color: black;
+  text-shadow: 0 0 3px rgba(255, 222, 175, 1), 4px 4px 5px rgba(0, 0, 0, 0.7);
+  width:44vw;
+  text-align: center;
+  align-content: center;
+  justify-content: center;
+  font-size:xxx-large;
+  font-weight: bold;
+  z-index: 1000;
+  display: none;
+  border: 3px solid #24312a;
+  background-image: url("graphy.png");
+  background-color: rgba(255, 222, 175, 0.7);
+}
+
+#alert {
+  animation: alertDrop 0.2s ease;
+}
+    
+@keyframes alertDrop {
+  0%   { transform: scale(1.1); }
+  100% { transform: scale(1); }
+  
+}
+
+@media (max-width:600px) {
+  .coordinate {
+    font-size: 8px;
+  }
+}
+
+.promotionOption{
+  border-radius: 50%;
+  background-color: darkgray;
+  transition: transform 0.2s;
+  position: absolute;
+  z-index: 1000;
+}
+.promotionOption:hover {
+  cursor: pointer;
+  border-radius: 0%;
+  background-color:#539B0C;
+  width: 100%;
+}
+.promotionOption img {
+  max-width: 100%;
+  width: 100%;
+  height: auto;
+}
+
+@media (orientation: portrait) {
+
+  body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+
+  .chessBoard {
+    width: 98vw;
+	height: auto;
+    
+  }
+
+}

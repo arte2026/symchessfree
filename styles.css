@@ -1,0 +1,334 @@
+@font-face {
+  font-family: Armature Thin; /* set name */
+  src: url("Armature-Thin.otf"); /* url of the font */
+}
+body {
+	font-family: Armature Thin, sans-serif;
+}
+
+.titleh1{
+    text-shadow: 0px 0px 3px rgba(255, 222, 175, 1), 4px 4px 5px rgba(0, 0, 0, 0.7);
+}
+
+#openPopup {
+	border: none;
+  color: black;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 20px 35px;
+  border-radius: 5px;
+  font-size: xx-large;
+  font-weight: bold;
+    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(gold, orange);
+  outline: 3px ridge orange;
+}
+button:hover {
+	background-image: linear-gradient(gray, dimgray);
+}
+button:active {
+	background-image: linear-gradient(gray, dimgray);
+    transform: scale(1.1);
+}
+#pause-btn{
+    border: none;
+  color: black;
+  padding: 10px 20px 8px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 22px 20px 10px 5px;
+  border-radius: 5px;
+  font-size: xx-large;
+  font-weight: bold;
+    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(orange, chocolate);
+  outline: 3px ridge darkgoldenrod;
+}
+#toggle-history{
+    border: none;
+  color: black;
+  padding: 5px 10px 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  margin: 10px 20px 15px 5px;
+  border-radius: 5px;
+  font-size: xx-large;
+  font-weight: bold;
+    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
+  background-image: linear-gradient(orange, chocolate);
+  outline: 3px ridge darkgoldenrod;
+}
+#history-panel {
+  position: absolute;
+  right: 37%;
+  top: 3%;
+  width: 180px;
+  max-height: 300px;
+  overflow-y: auto;
+  background: rgba(0,0,0,0.8);
+  color: white;
+    text-shadow: 0 0 5px gray;
+    text-align: center;
+  border: 3px ridge gray;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 15px;
+    z-index: 1000;
+}
+
+.hidden {
+  display: none;
+}
+
+#move-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#move-list li {
+  margin-bottom: 4px;
+}
+#popup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex; /* Visible on load */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+#popup {
+  animation: popupDrop 0.2s ease;
+}
+
+@keyframes popupDrop {
+  0%   { transform: scale(1.1); }
+  100% { transform: scale(1); }
+  
+}
+
+.popup-content {
+  background-image: url("graphy.png");
+  background-repeat: repeat;
+  background-color: rgba(255, 222, 175, 0.5);
+  padding: 0px 20px 0px 20px;
+  border-radius: 5px;
+  min-width: 360px;
+  max-width: 90%;
+  position: relative;
+  box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.7);
+  text-align: center;
+}
+.popup-content h1{
+    font-size: 27px;
+}
+.popup-content h2 {
+    font-size: 22px;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+.popup-content h3 {
+    border-top: 2px solid black;
+    padding-top: 10px;
+    margin: 5px 0px 10px 0px;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 30px;
+  cursor: pointer;
+    font-weight: bold;
+}
+.popup-secondary {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+.popup-secondary {
+  animation: popupDrop 0.2s ease;
+}
+
+@keyframes popup-secondaryDrop {
+  0%   { transform: scale(1.1); }
+  100% { transform: scale(1); }
+  
+}
+.popup-button {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(0deg, #2f423d 0%, #405952 100%);
+  color: white;
+  border: 2px solid #2f423d;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 1px 4px 4px 4px;
+  font-size: 20px;
+  text-shadow: 0px 0px 2px #2f423d, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+    transition: 0.2s;
+}
+
+.popup-button2 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(0deg, #413F1F 0%, #605d2e 100%);
+  color: white;
+  border: 2px solid #413F1F;
+  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 1px 4px 4px 4px;
+  font-size: 20px;
+    text-shadow: 0px 0px 2px #413F1F, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+}
+
+
+.popup-button3 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: linear-gradient(0deg, #222940 0%, #3c4972 100%);
+  color: white;
+  border: 2px solid #222940;
+  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 1px 4px 4px 4px;
+  font-size: 20px;
+    text-shadow: 0px 0px 2px #222940, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+}
+.popup-button4 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background: linear-gradient(0deg, #422219 0%, #663527 100%);
+  color: white;
+  border: 2px solid #422219;
+  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 1px 4px 4px 4px;
+  font-size: 20px;
+    text-shadow: 0px 0px 2px #422219, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+}
+.popup-button5 {
+  margin-top: 10px;
+  margin-bottom: 15px;
+  background: linear-gradient(0deg, #412542 0%, #673c68 100%);
+  color: white;
+  border: 2px solid #412542;
+  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 1px 4px 4px 4px;
+  font-size: 20px;
+    text-shadow: 0 0 2px #412542, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+}
+
+.popup-button6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 2px 10px 4px 7px;
+  background-color: rgba(0,0,0,0.3);
+  color: black;
+  border-radius: 4px;  
+  cursor: pointer;
+    border: none;
+    font-size: 1.1em;
+    font-family: Armature Thin, sans-serif;
+}
+
+.last-moved-piece {
+  outline: 3px solid rgba(255, 215, 0, 0.8);
+  z-index: 100;
+  border-radius: 6px;
+}
+
+#clock-container {
+  display: flex;
+  flex-direction:column-reverse;
+  margin: 10px 5px 10px 5px;
+  font-size: xxx-large;
+  font-weight: normal;
+  font-family: Monaco, monospace;
+}
+
+.clock {
+  padding: 8px 8px;
+  border-radius: 15px;
+  background-color: #363636;
+  color: gold;
+  border: 3px ridge dimgray;
+    text-shadow: 0px 0px 2px black, 0px 0px 15px goldenrod;
+}
+
+.clock.active {
+  background-color: #363636;
+  color: gold;
+}
+#white-clock {
+  
+}
+
+#black-clock {
+  transform: rotate(180deg);
+  
+}
+/* From Uiverse.io by Yaya12085 */ 
+.radio-inputs {
+  position: relative;
+  display: inline-flex;
+  flex-wrap: wrap;
+  border-radius: 4px;
+  background-color: rgba(0,0,0,0.3);
+  box-sizing: border-box;
+    margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 18px;
+  border: none;
+  padding: 4px 11px;
+  font-size: 1.1em;
+  transition: all .15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
+}
+.button-clk{
+    border-radius: 16px;
+    margin-top: 0px;
+}

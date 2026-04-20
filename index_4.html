@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Battle Mode</title>
+      <meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+      <link rel="stylesheet" href="style.css">
+	  <link rel="stylesheet" href="styles.css">
+      <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#000000">
+  </head>
+  <body>
+  
+  <div id="clock-container">
+  <div id="white-clock" class="clock">2:00</div>
+  <button id="openPopup" onclick="playButtonSound1()">☰</button>
+  <div id="black-clock" class="clock">2:00</div>
+</div>
+
+  <div id="popup">
+    <div class="popup-content">
+      <span id="closePopup" class="close-button">&times;</span>
+      <h1 data-i18n="endgame_title" class="titleh1">🥊 Endgame Battle</h1>
+	  <h2 data-i18n="endgame_sub" >⚔ Set 5 Diferent Endgame Battle Positions</h2>
+	  <button data-i18n="btn_1" onclick="playButtonSound('index_4.html'); startGame(2, 2);" class="popup-button4">♛ Set #1</button>
+      <button data-i18n="btn_2" onclick="playButtonSound('index_5.html'); startGame(2, 2);" class="popup-button4">♞ Set #2</button>
+      <button data-i18n="btn_3" onclick="playButtonSound('index_6.html'); startGame(2, 2);" class="popup-button4">♝ Set #3</button>
+	  <br>
+      <button data-i18n="btn_4" onclick="playButtonSound('index_7.html'); startGame(2, 2);" class="popup-button4">♜ Set #4</button>
+      <button data-i18n="btn_5" onclick="playButtonSound('index_8.html'); startGame(2, 2);" class="popup-button4">♟ Set #5</button>
+	  <button data-i18n="btn_home" onclick="playButtonSound('index.html')" class="popup-button">🏠 Home</button>
+      <h3>G. R. Monroy 2026 🍹 paypal.me/Guillermo3D</h3>
+      
+    </div>
+  </div>
+  
+    <div class="chessBoard">        
+      <!-- Add the pawn div element -->
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        
+      </div>
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        
+      </div>
+      <div class="square white">
+        <div class="piece king" color="black" >
+            <img src="Black-King.png" alt="King" >
+          </div>
+      </div>
+      <div class="square black">
+        <div class="piece rook" color="black"  >
+            <img src="Black-Rook.png" alt="Rook" >
+          </div>
+      </div>
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        <div class="coordinate rank whiteText">8</div>
+
+        
+      </div>
+     <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square black">
+        
+
+      </div>
+      <div class="square white">
+        
+
+      </div>
+      <div class="square black">
+        
+
+      </div>
+      <div class="square white">
+        
+
+      </div>
+      <div class="square black">
+        <div class="piece pawn" color="black"  >
+            <img src="Black-Pawn.png" alt="Pawn" >
+          </div>
+
+      </div>
+      <div class="square white">
+        
+
+      </div>
+      <div class="square black">
+        
+
+      </div>
+      <div class="square white">
+        <div class="coordinate rank blackText">7</div>
+
+        
+
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black">
+        <div class="coordinate rank whiteText">6</div>
+
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white">
+        <div class="coordinate rank blackText">5</div>
+
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black">
+        <div class="coordinate rank whiteText">4</div>
+
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white"></div>
+      <div class="square black"></div>
+      <div class="square white">
+        <div class="coordinate rank blackText">3</div>
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        
+      </div>
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        
+      </div>
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        
+      </div>
+      <div class="square white">
+        
+      </div>
+      <div class="square black">
+        <div class="coordinate rank whiteText">2</div>
+
+        
+      </div>
+    <!-- ------------------------------------------------------------------------- -->
+
+      <div class="square black">
+        <div class="coordinate whiteText">a</div>
+
+        
+      </div>
+      <div class="square white"> 
+        <div class="coordinate blackText">b</div>
+
+        
+    </div>
+      <div class="square black">
+        <div class="coordinate whiteText">c</div>
+
+        
+      </div>
+      <div class="square white">
+        <div class="coordinate blackText">d</div>
+
+        <div class="piece queen" color="white" >
+            <img src="White-Queen.png" alt="Queen" >
+           </div>
+      </div>
+      <div class="square black">
+        <div class="coordinate whiteText">e</div>
+
+        <div class="piece king" color="white">
+            <img src="White-King.png" alt="King">
+        </div>
+      </div>
+      <div class="square white">
+        <div class="coordinate blackText">f</div>
+        
+      </div>
+      <div class="square black">
+        <div class="coordinate whiteText">g</div>
+
+        
+      </div>
+      <div class="square white">
+        <div class="coordinate rank blackText">1</div>
+        <div class="coordinate blackText">h</div>     
+        
+      </div>
+    </div>
+      <div>
+          <button id="pause-btn" onclick="togglePause();playButtonSound1()">II</button> <br> 
+          <button id="toggle-history" onclick="playButtonSound1()">🖋</button>
+      </div>
+      <div id="history-panel" class="hidden">
+          <h3 data-i18n="moveh">Move History</h3>
+  <ul id="move-list"></ul>
+</div>
+    <div id="alert">
+     
+    </div>
+    <audio id="moveSound" preload="auto">
+  <source src="move.mp3" type="audio/mpeg">
+    </audio>
+      <audio id="victorySound" preload="auto">
+      <source src="victory.mp3" type="audio/mpeg">
+    </audio>
+	<audio id="buttonSound1" preload="auto">
+  <source src="click.mp3" type="audio/mpeg">
+</audio>
+      <audio id="buttonSound" preload="auto">
+  <source src="click2.mp3" type="audio/mpeg">
+</audio>
+	<script src="clock.js"></script>
+	<script>
+    // Inicializa el reloj con 3 minutos y 2 segundos de incremento
+    initClock(2, 2);
+  </script>
+    <script src="main.js"></script>
+	<script src="script.js"></script>
+
+  </body>
+</html>
+
