@@ -1659,5 +1659,5 @@ function showAlert(message) {
 
   setTimeout(function () {
     alert.style.display = "none";
-  }, 6000);
+  }, 9000);
 }
