@@ -4,6 +4,9 @@
     <title>Symmetric Chess</title>
       <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+	<meta name="description" content="Windows Chess Game with Symmetric Chess Pieces for two players locally and against a chess bot">
+<meta name="keywords" content="chess, chessboard, windows, symmetric">
+<meta name="author" content="Guillermo R Monroy">
       <link rel="stylesheet" href="style.css">
 	  <link rel="stylesheet" href="styles.css">
       <link rel="manifest" href="manifest.json">
@@ -30,37 +33,40 @@
       
   <div id="popup">
     <div class="popup-content">
-      <span id="closePopup" class="close-button">&times;</span>
-      <h1 class="titleh1">𖣯 SymChess v. 3.4</h1>
-	  <h2 data-i18n="main_subtitle">Challenge a Friend or Beat the AI</h2>
-	  <button data-i18n="btn_main" id="classicLocalBtn" onclick="playButtonSound1()" class="popup-button button-clk">🕐 Set Clock 🕐</button><br>
+      <span id="closePopup" class="close-button">✖</span>
+      <h1 data-i18n="main_subtitle">🏆 SymChess v. 3.5</h1>
+	  <h2 data-i18n="blitz_menu_title">Classic Chess</h2>
 	  
+	  <button data-i18n="btn_main" id="classicLocalBtn" onclick="playButtonSound1()" class="popup-button button-clk">🕐 Set Clock 🕐</button>
+	  <p class="borderline"></p>
 	  <button data-i18n="btn_koth" onclick="playButtonSound('index_2.html')" class="popup-button2">👑 King of the Hill</button>
-	  <button data-i18n="btn_chess960" onclick="playButtonSound('index_3.html')" class="popup-button3">🎲 Chess960</button><br>
-	  <button data-i18n="btn_endgame" onclick="playButtonSound('index_4.html')" class="popup-button4">🥊 Endgame Battle</button>
+	  <button data-i18n="btn_chess960" onclick="playButtonSound('index_3.html')" class="popup-button3">🎲 Chess960</button>
+	  <button data-i18n="btn_endgame" onclick="playButtonSound('index_4.html')" class="popup-button4">🥊 Endgame Battle</button><br>
 	  <button data-i18n="btn_bot_ai" onclick="playButtonSound('index_12.html')" class="popup-button5">🤖 Chess Bot AI</button>
-        <div style="border-bottom: 2px solid black;"></div>
+	  <button data-i18n="btn_bot960" onclick="playButtonSound('index_18.html')" class="popup-button3">💻 Chess960 Bot</button>
+        <p class="borderline"></p>
 	  
         <div class="radio-inputs">
   <label class="radio">
     <input type="radio" name="radio" onclick="playButtonSound1(); changeLanguage('en')">
-    <span class="name">EN</span>
+    <span class="name">ENG</span>
   </label>
   <label class="radio">
     <input type="radio" name="radio" onclick="playButtonSound1(); changeLanguage('es')">
-    <span class="name">ES</span>
+    <span class="name">SPA</span>
   </label>
       
   <label class="radio">
     <input type="radio" name="radio" onclick="playButtonSound1(); changeLanguage('ru')">
-    <span class="name">RU</span>
+    <span class="name">RUS</span>
   </label>
             <label class="radio">
     <input type="radio" name="radio" onclick="playButtonSound1(); changeLanguage('pt')">
-    <span class="name">PT</span>
+    <span class="name">POR</span>
   </label>
 </div>
         <button  data-i18n="bot_rules" onclick="playButtonSound1()" id="classicLocalBtn2" class="popup-button6" >📄 RULES</button>
+        <h3>🏆 SymChess v. 3.5 Guillermo R Monroy 2026 <br> Donate: paypal.me/Guillermo3D</h3>
     </div>
   </div>
   <div id="timePopup" class="popup-secondary">
@@ -73,14 +79,16 @@
 	<button data-i18n="btn_9_min" onclick="playButtonSound1(); startGame(9, 2)" class="popup-button button-clk">🕐 9 Minutes</button>
 
   </div>
+  
 </div>
   <div id="timePopup2" class="popup-secondary">
   <div class="popup-content">
     <span id="backToMain2" class="close-button">←</span>
-    <h2 data-i18n="rules_title" class="titleh1" >📖 Rules of Chess</h2>
-    <h4 data-i18n="rules_sub">🏆 Checkmate: Trap the opponent's King <br>so it cant escape an attack.</h4>
-    <h4 data-i18n="rules_txt" >♔ King: Moves 1 square in any direction.<br>♕ Queen: Moves any distance in any direction.<br>♖ Rook: Moves any distance straight.<br>♗ Bishop: Moves any distance diagonally.<br>♘ Knight: Moves in an "L" shape: 2 steps straight,<br>1 step sideways. It can jump over others!<br>♙ Pawn: Moves 1 step forward, or 2 steps on its<br>first move. It captures enemies 1 step diagonally.<br>🏰 Castling: Move your King 2 squares toward a Rook. <br>That Rook then jumps over to stand next to the King.</h4>
-
+    <h1 data-i18n="rules_title" class="titleh1" >📖 Rules of Chess</h1>
+    <p class="borderline"></p>
+    <h2 data-i18n="rules_sub">🏆 Checkmate: Trap the opponent's King so it cant escape an attack.</h2>
+    <h3 data-i18n="rules_txt" >♔ King: Moves 1 square in any direction.<br>♕ Queen: Moves any distance in any direction.<br>♖ Rook: Moves any distance straight.<br>♗ Bishop: Moves any distance diagonally.<br>♘ Knight: Moves in an "L" shape: 2 steps straight,<br>1 step sideways. It can jump over others!<br>♙ Pawn: Moves 1 step forward, or 2 steps on its<br>first move. It captures enemies 1 step diagonally.<br>🏰 Castling: Move your King 2 squares toward a Rook. <br>That Rook then jumps over to stand next to the King.</h3>
+<br>
   </div>
 </div>
     <div class="chessBoard">        

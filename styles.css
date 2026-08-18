@@ -6,24 +6,18 @@ body {
 	font-family: Armature Thin, sans-serif;
 }
 
-.titleh1{
-    text-shadow: 0px 0px 3px rgba(255, 222, 175, 1), 4px 4px 5px rgba(0, 0, 0, 0.7);
-}
-
 #openPopup {
 	border: none;
-  color: black;
-  padding: 5px 5px;
+  color: gold;
+  padding: 10px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  margin: 20px 35px;
+  margin: 20px;
   border-radius: 5px;
   font-size: xx-large;
   font-weight: bold;
-    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
-  background-image: linear-gradient(gold, orange);
-  outline: 3px ridge orange;
+    background: rgba(54, 54, 54, 0.8);
 }
 button:hover {
 	background-image: linear-gradient(gray, dimgray);
@@ -34,8 +28,8 @@ button:active {
 }
 #pause-btn{
     border: none;
-  color: black;
-  padding: 10px 20px 8px 20px;
+  color: gold;
+  padding: 16px 30px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -43,14 +37,12 @@ button:active {
   border-radius: 5px;
   font-size: xx-large;
   font-weight: bold;
-    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
-  background-image: linear-gradient(orange, chocolate);
-  outline: 3px ridge darkgoldenrod;
+  background: rgba(54, 54, 54, 0.8);
 }
 #toggle-history{
     border: none;
-  color: black;
-  padding: 5px 10px 6px 10px;
+  color: gold;
+  padding: 17px 23px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
@@ -58,9 +50,7 @@ button:active {
   border-radius: 5px;
   font-size: xx-large;
   font-weight: bold;
-    text-shadow: 0px 0px 3px gold, 4px 4px 5px rgba(0, 0, 0, 0.7);
-  background-image: linear-gradient(orange, chocolate);
-  outline: 3px ridge darkgoldenrod;
+    background: rgba(54, 54, 54, 0.8);
 }
 #history-panel {
   position: absolute;
@@ -117,29 +107,13 @@ button:active {
 }
 
 .popup-content {
-  background-image: url("graphy.png");
-  background-repeat: repeat;
-  background-color: rgba(255, 222, 175, 0.5);
+  background-color: rgb(255 241 221 / 75%);
   padding: 0px 20px 0px 20px;
   border-radius: 5px;
-  min-width: 360px;
-  max-width: 90%;
+  width: 50%;
   position: relative;
   box-shadow: 7px 7px 15px rgba(0, 0, 0, 0.7);
   text-align: center;
-}
-.popup-content h1{
-    font-size: 27px;
-}
-.popup-content h2 {
-    font-size: 22px;
-    border-bottom: 2px solid black;
-    padding-bottom: 10px;
-}
-.popup-content h3 {
-    border-top: 2px solid black;
-    padding-top: 10px;
-    margin: 5px 0px 10px 0px;
 }
 
 .close-button {
@@ -169,14 +143,13 @@ button:active {
   
 }
 .popup-button {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   background: linear-gradient(0deg, #2f423d 0%, #405952 100%);
   color: white;
   border: 2px solid #2f423d;
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1px 4px 4px 4px;
+  padding: 8px 15px;
   font-size: 20px;
   text-shadow: 0px 0px 2px #2f423d, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
@@ -184,15 +157,14 @@ button:active {
 }
 
 .popup-button2 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   background: linear-gradient(0deg, #413F1F 0%, #605d2e 100%);
   color: white;
   border: 2px solid #413F1F;
   
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1px 4px 4px 4px;
+  padding: 8px 15px;
   font-size: 20px;
     text-shadow: 0px 0px 2px #413F1F, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
@@ -200,52 +172,48 @@ button:active {
 
 
 .popup-button3 {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px;
   background: linear-gradient(0deg, #222940 0%, #3c4972 100%);
   color: white;
   border: 2px solid #222940;
   
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1px 4px 4px 4px;
+  padding: 8px 15px;
   font-size: 20px;
     text-shadow: 0px 0px 2px #222940, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
 }
 .popup-button4 {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin: 10px;
   background: linear-gradient(0deg, #422219 0%, #663527 100%);
   color: white;
   border: 2px solid #422219;
   
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1px 4px 4px 4px;
+  padding: 8px 15px;
   font-size: 20px;
     text-shadow: 0px 0px 2px #422219, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
 }
 .popup-button5 {
-  margin-top: 10px;
-  margin-bottom: 15px;
+  margin: 10px;
   background: linear-gradient(0deg, #412542 0%, #673c68 100%);
   color: white;
   border: 2px solid #412542;
   
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
   cursor: pointer;
-  padding: 1px 4px 4px 4px;
+  padding: 8px 15px;
   font-size: 20px;
     text-shadow: 0 0 2px #412542, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
 }
 
 .popup-button6 {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 2px 10px 4px 7px;
+  margin: 0px 15px;
+  padding: 8px 15px;
   background-color: rgba(0,0,0,0.3);
   color: black;
   border-radius: 4px;  
@@ -273,15 +241,13 @@ button:active {
 .clock {
   padding: 8px 8px;
   border-radius: 15px;
-  background-color: #363636;
+  background-color: rgba(54, 54, 54, 0.8);
   color: gold;
-  border: 3px ridge dimgray;
-    text-shadow: 0px 0px 2px black, 0px 0px 15px goldenrod;
 }
 
 .clock.active {
-  background-color: #363636;
-  color: gold;
+  border: 1px solid gold;
+
 }
 #white-clock {
   
@@ -363,4 +329,9 @@ button:active {
 .welcome-screen.fade-out {
   opacity: 0;
   transition: opacity 0.9s ease;
+}
+
+.borderline{
+border-bottom: 2px solid black; 
+margin:10px 15%;
 }

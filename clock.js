@@ -130,7 +130,7 @@ function togglePause() {
       clearInterval(clockInterval); // Stops the countdown
     }
     
-    pauseBtn.textContent = ">";
+    pauseBtn.textContent = "▶";
     
     // Visually remove the active highlight from both clocks
     document.getElementById("white-clock").classList.remove("active");

@@ -27,13 +27,14 @@ html, body {
   touch-action: pan-y; /* allow horizontal/vertical pointer interactions as needed */
   -ms-touch-action: pan-y;
   user-select: none;
-  height: 98%;
+  height: 95%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  outline: 5px ridge #9C9B7A;
+  outline: 15px solid #93652a;
   aspect-ratio: 1 / 1;
     box-shadow: 0px 0px 30px #9C9B7A;
+    border-radius: 6px;
 }
 .square {
   width:12.5%;
@@ -43,7 +44,9 @@ html, body {
   justify-content: center;
   align-items: center;
   position: relative;
-  outline: 1px inset black;
+  position: relative;
+  outline: 1px solid darkslategray;
+  border-radius: 4px;
 }
 .white {
   background-color: #FDDDAA;
