@@ -133,7 +133,7 @@ html, body {
   position: fixed;
   color: black;
   text-shadow: 0 0 3px rgba(255, 222, 175, 1), 4px 4px 5px rgba(0, 0, 0, 0.7);
-  width:44vw;
+  padding: 15px;
   text-align: center;
   align-content: center;
   justify-content: center;
@@ -142,7 +142,6 @@ html, body {
   z-index: 1000;
   display: none;
   border: 3px solid #24312a;
-  background-image: url("graphy.png");
   background-color: rgba(255, 222, 175, 0.7);
 }
 
