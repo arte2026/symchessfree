@@ -5,8 +5,8 @@
       <meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link rel="stylesheet" href="style.css">
-	  <link rel="stylesheet" href="styles.css">
-      <link rel="manifest" href="manifest.json">
+	 
+      
       <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="theme-color" content="#000000">
   </head>
@@ -321,12 +321,61 @@
   <source src="move.mp3" type="audio/mpeg">
 </audio>
 	<script src="clock.js"></script>
+  <script src="main.js"></script>
 	<script>
     // Inicializa el reloj con 3 minutos y 2 segundos de incremento
     initClock(5, 2);
   </script>
-    <script src="main_kh.js"></script>
-	
+    
+	<script>
+    function checkForEndGame(){
+	// 👇 NEW: Check for King of the Hill victory first
+  if (checkKingOfTheHillWin()) {
+    return; // Exit the function immediately if someone won
+  }
+  // 👆 ----------------------------------------------
+  checkForCheckMateAndStaleMate();
+  let currentPosition = generateFEN(boardSquaresArray);
+  positionArray.push(currentPosition);
+  let threeFoldRepetition = isThreefoldRepetition();
+  let insufficientMaterial = hasInsufficientMaterial(currentPosition);
+  let fiftyMovesRuleCount = currentPosition.split(" ")[4];
+  let fiftyMovesRule = fiftyMovesRuleCount!=100 ? false : true;
+  let isDraw = threeFoldRepetition||insufficientMaterial || fiftyMovesRule;
+  if(isDraw){
+    allowMovement=false;
+    // NEW WAY:
+    showAlert(getTranslation("alert_draw"));
+
+    document.addEventListener('dragstart', function(event) {
+        event.preventDefault();
+    });
+     document.addEventListener('drop', function(event) {
+        event.preventDefault();
+    });
+    
+  }
+}
+    function checkKingOfTheHillWin() {
+  // The four winning center squares
+  const centerSquares = ["d4", "d5", "e4", "e5"];
+
+  // Check if any King is currently sitting on one of these squares
+  for (let squareId of centerSquares) {
+    let square = boardSquaresArray.find((s) => s.squareId === squareId);
+    
+    if (square && square.pieceType === "king") {
+      let winner = square.pieceColor === "white" ? "White" : "Black";
+      
+      // Stop the game and announce the winner
+      allowMovement = false;
+      showAlert(getTranslation("alert_koth"));
+      return true; // A win was detected
+    }
+  }
+  return false; // No win detected yet
+}
+  </script>
 	 <script src="script.js"></script>
   </body>
 </html>

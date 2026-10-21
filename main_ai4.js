@@ -1811,9 +1811,9 @@ moves.sort((a, b) => {
     for (const move of moves) {
       let simBoard = deepCopyArray(board);
       simulateMoveOnBoard(move, simBoard);
-      let eval = minimax(simBoard, depth - 1, false, alpha, beta);
-      maxEval = Math.max(maxEval, eval);
-      alpha = Math.max(alpha, eval);
+      let score = minimax(simBoard, depth - 1, false, alpha, beta);
+      maxEval = Math.max(maxEval, score);
+      alpha = Math.max(alpha, score);
       if (beta <= alpha) break; // Prune
     }
     return maxEval;
@@ -1822,9 +1822,9 @@ moves.sort((a, b) => {
     for (const move of moves) {
       let simBoard = deepCopyArray(board);
       simulateMoveOnBoard(move, simBoard);
-      let eval = minimax(simBoard, depth - 1, true, alpha, beta);
-      minEval = Math.min(minEval, eval);
-      beta = Math.min(beta, eval);
+      let score = minimax(simBoard, depth - 1, true, alpha, beta);
+      minEval = Math.min(minEval, score);
+      beta = Math.min(beta, score);
       if (beta <= alpha) break; // Prune
     }
     return minEval;

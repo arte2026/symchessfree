@@ -88,6 +88,9 @@ const gameDictionary = {
   "btn_3": "♝ Set #3",
   "btn_4": "♜ Set #4",
   "btn_5": "♟ Set #5",
+  "btn_6": "♔ Set #6",
+  "btn_7": "♟ Set #7",
+  "btn_8": "♞ Set #8",
   "btn_home": "🏠 Home",  
   "botw_title": "🤖 Chess Bot (W)",
   "botw_sub": "Play as White vs Bot AI",
@@ -144,6 +147,9 @@ const gameDictionary = {
   "btn_3": "♝ Posicion #3",
   "btn_4": "♜ Posicion #4",
   "btn_5": "♟ Posicion #5",
+  "btn_6": "♔ Posicion #6",
+  "btn_7": "♟ Posicion #7",
+  "btn_8": "♞ Posicion #8",
   "btn_home": "🏠 Inicio", 
   "botw_title": "🤖 Bot de Ajedrez (B)",
   "botw_sub": "Juega Blancas vs la Bot IA",
@@ -201,6 +207,9 @@ const gameDictionary = {
   "btn_3": "♝ Позиция #3",
   "btn_4": "♜ Позиция #4",
   "btn_5": "♟ Позиция #5",
+  "btn_6": "♔ Позиция #6",
+  "btn_7": "♟ Позиция #7",
+  "btn_8": "♞ Позиция #8",
   "btn_home": "🏠 Домашняя ", 
   "botw_title": "🤖 Шахматный бот белые",
   "botw_sub": "Играть белыми против бота ИИ",
@@ -259,6 +268,9 @@ const gameDictionary = {
 "btn_3": "♝ Posição #3",
 "btn_4": "♜ Posição #4",
 "btn_5": "♟ Posição #5",
+"btn_6": "♔ Posição #6",
+  "btn_7": "♟ Posição #7",
+  "btn_8": "♞ Posição #8",
 "btn_home": "🏠 Início",
 "botw_title": "🤖 Bot de Xadrez (B)",
 "botw_sub": "Jogar de Brancas contra o Bot de IA",
@@ -382,21 +394,7 @@ function playButtonSound(url) {
   }, 150); 
 }
 
-//WELCOME
-const welcomeScreen = document.getElementById("welcomeScreen");
-const enterBtn = document.getElementById("enterBtn");
 
-enterBtn.addEventListener("click", () => {
-  welcomeScreen.classList.add("fade-out");
-
-  setTimeout(() => {
-    welcomeScreen.style.display = "none";
-  }, 900);
-
-});
-welcomeScreen.addEventListener("click", () => {
-  enterBtn.click();
-});
 
 if ('serviceWorker' in navigator) {
 navigator.serviceWorker.register('./service-worker.js')

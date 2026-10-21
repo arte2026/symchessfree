@@ -60,6 +60,7 @@ document.getElementById("toggle-history").addEventListener("click", () => {
     document.getElementById("history-panel").classList.toggle("hidden");
 });
 
+
 // Function to play the end-game sound
 function playVictorySound() {
   if (!victorySound) return;
@@ -1813,9 +1814,9 @@ moves.sort((a, b) => {
     for (const move of moves) {
       let simBoard = deepCopyArray(board);
       simulateMoveOnBoard(move, simBoard);
-      let eval = minimax(simBoard, depth - 1, false, alpha, beta);
-      maxEval = Math.max(maxEval, eval);
-      alpha = Math.max(alpha, eval);
+      let childEval = minimax(simBoard, depth - 1, false, alpha, beta);
+      maxEval = Math.max(maxEval, childEval);
+      alpha = Math.max(alpha, childEval);
       if (beta <= alpha) break; // Prune
     }
     return maxEval;
@@ -1824,9 +1825,9 @@ moves.sort((a, b) => {
     for (const move of moves) {
       let simBoard = deepCopyArray(board);
       simulateMoveOnBoard(move, simBoard);
-      let eval = minimax(simBoard, depth - 1, true, alpha, beta);
-      minEval = Math.min(minEval, eval);
-      beta = Math.min(beta, eval);
+      let childEval = minimax(simBoard, depth - 1, true, alpha, beta);
+      minEval = Math.min(minEval, childEval);
+      beta = Math.min(beta, childEval);
       if (beta <= alpha) break; // Prune
     }
     return minEval;
