@@ -6,10 +6,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
       <link rel="stylesheet" href="style.css">
 	  
-      
       <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="theme-color" content="#000000">
-
 
   </head>
   <body>
@@ -26,14 +24,14 @@
       <h1 data-i18n="endgame_title" class="titleh1">🥊 Endgame Battle 🥊</h1>
 	  <h2 data-i18n="endgame_sub" >⚔ Set 8 Diferent Endgame Battle Positions</h2>
 	  <p class="borderline"></p>
-	  <button data-i18n="btn_1" onclick="showSection('puzzle1'); startGame(2, 2);" class="popup-button4">♛ Set #1</button>
-      <button data-i18n="btn_2" onclick="showSection('puzzle2'); startGame(2, 2);" class="popup-button4">♞ Set #2</button>
-      <button data-i18n="btn_3" onclick="showSection('puzzle3'); startGame(2, 2);" class="popup-button4">♝ Set #3</button>
-      <button data-i18n="btn_4" onclick="showSection('puzzle4'); startGame(2, 2);" class="popup-button4">♜ Set #4</button>
-      <button data-i18n="btn_5" onclick="showSection('puzzle5'); startGame(2, 2);" class="popup-button4">♟ Set #5</button>
-       <button data-i18n="btn_6" onclick="showSection('puzzle6'); startGame(2, 2);" class="popup-button4">♟ Set #6</button>
-       <button data-i18n="btn_7" onclick="showSection('puzzle7'); startGame(2, 2);" class="popup-button4">♟ Set #7</button>
-       <button data-i18n="btn_8" onclick="showSection('puzzle8'); startGame(2, 2);" class="popup-button4">♟ Set #8</button>
+	  <button data-i18n="btn_1" onclick="showSection('puzzle1')" class="popup-button4">♛ Set #1</button>
+      <button data-i18n="btn_2" onclick="showSection('puzzle2')" class="popup-button4">♞ Set #2</button>
+      <button data-i18n="btn_3" onclick="showSection('puzzle3')" class="popup-button4">♝ Set #3</button>
+      <button data-i18n="btn_4" onclick="showSection('puzzle4')" class="popup-button4">♜ Set #4</button>
+      <button data-i18n="btn_5" onclick="showSection('puzzle5')" class="popup-button4">♟ Set #5</button>
+       <button data-i18n="btn_6" onclick="showSection('puzzle6')" class="popup-button4">♟ Set #6</button>
+       <button data-i18n="btn_7" onclick="showSection('puzzle7')" class="popup-button4">♟ Set #7</button>
+       <button data-i18n="btn_8" onclick="showSection('puzzle8')" class="popup-button4">♟ Set #8</button>
 	  <button data-i18n="btn_home" onclick="playButtonSound('index.html')" class="popup-button">🏠 Home</button>
 	  <p class="borderline"></p>
       <h3>Guillermo R. Monroy 2026<br>Please Donate: paypal.me/Guillermo3D</h3>
@@ -1661,22 +1659,60 @@
   <source src="move.mp3" type="audio/mpeg">
 </audio>
 	<script src="clock.js"></script>
-	<script>
-    // Inicializa el reloj con 3 minutos y 2 segundos de incremento
-    initClock(2, 2);
-  </script>
+	
     <script src="main.js"></script>
 	<script src="script.js"></script>
 <script>
-function showSection(chessBoardId) {
-    // Hide all sections
-    document.querySelectorAll('.chessBoard').forEach(div => {
-        div.classList.remove('active');
-    });
-
-    // Show selected section
-    document.getElementById(chessBoardId).classList.add('active');
+// ===== Endgame Battle: one board at a time, full reset on every load =====
+const BATTLE_MINUTES = 2;     // clock for each side
+const BATTLE_INCREMENT = 2;   // seconds added after each move
+ 
+// Keep the markup of every puzzle, then leave ONLY the first board in the page.
+// (main.js numbers every ".square" in the document, so 8 boards at once broke the square ids.)
+const PUZZLES = {};
+document.querySelectorAll('.chessBoard').forEach(b => { PUZZLES[b.id] = b.innerHTML; });
+const boardEl = document.querySelector('.chessBoard'); // same element main.js uses as chessBoard
+document.querySelectorAll('.chessBoard').forEach(b => { if (b !== boardEl) b.remove(); });
+ 
+function loadPuzzle(puzzleId, closeMenu) {
+  // stop and reset the clock
+  if (clockInterval) { clearInterval(clockInterval); clockInterval = null; }
+  document.getElementById('white-clock').classList.remove('active');
+  document.getElementById('black-clock').classList.remove('active');
+ 
+  // put the chosen position on the board
+  boardEl.innerHTML = PUZZLES[puzzleId];
+ 
+  // reset game state (variables live in main.js / clock.js)
+  moves = [];
+  positionArray = [];
+  moveHistory = [];
+  enPassantSquare = "blank";
+  isWhiteTurn = true;
+  allowMovement = true;
+  isPaused = false;
+  hasGameStarted = false;
+  touchPiece = null;
+  touchStartSquareId = null;
+ 
+  // rebuild ids, listeners and the internal board array for the new pieces
+  setupBoardSquares();
+  setupPieces();
+  boardSquaresArray = [];
+  fillBoardSquaresArray();
+ 
+  // reset the UI
+  initClock(BATTLE_MINUTES, BATTLE_INCREMENT);
+  document.getElementById('pause-btn').textContent = 'II';
+  document.getElementById('alert').style.display = 'none';
+  renderMoveHistory();
+  if (closeMenu) document.getElementById('popup').style.display = 'none';
 }
+ 
+function showSection(puzzleId) { loadPuzzle(puzzleId, true); }
+ 
+// run after clock.js's own window.onload so our clock settings win
+window.addEventListener('load', () => loadPuzzle('puzzle1', false));
 </script>
   </body>
 </html>

@@ -304,10 +304,10 @@ function generateFEN(boardSquares){
 
   let castlingString="";
 
-  let shortCastlePossibleForWhite = !kingHasMoved("white") &&!rookHasMoved("white","h1");
-  let longCastlePossibleForWhite = !kingHasMoved("white") &&!rookHasMoved("white","a1");
-  let shortCastlePossibleForBlack = !kingHasMoved("black") &&!rookHasMoved("black","h8");
-  let longCastlePossibleForBlack = !kingHasMoved("black") &&!rookHasMoved("black","a8");
+  let shortCastlePossibleForWhite = !kingHasMoved("white") &&!rookHasMoved("white","h1") && rookIsAt("white","h1",boardSquaresArray);
+  let longCastlePossibleForWhite = !kingHasMoved("white") &&!rookHasMoved("white","a1") && rookIsAt("white","a1",boardSquaresArray);
+  let shortCastlePossibleForBlack = !kingHasMoved("black") &&!rookHasMoved("black","h8") && rookIsAt("black","h8",boardSquaresArray);
+  let longCastlePossibleForBlack = !kingHasMoved("black") &&!rookHasMoved("black","a8") && rookIsAt("black","a8",boardSquaresArray);
 
   if(shortCastlePossibleForWhite) castlingString+="K";
   if(longCastlePossibleForWhite) castlingString+="Q";
@@ -1157,7 +1157,8 @@ function isShortCastlePossible(pieceColor, boardSquaresArray) {
     fSquare.pieceColor !== "blank" ||
     gSquare.pieceColor !== "blank" ||
     kingHasMoved(pieceColor) ||
-    rookHasMoved(pieceColor, `h${rank}`)
+    rookHasMoved(pieceColor, `h${rank}`) ||
+    !rookIsAt(pieceColor, `h${rank}`, boardSquaresArray)
   ) {
     return "blank";
   }
@@ -1180,12 +1181,17 @@ function isLongCastlePossible(pieceColor, boardSquaresArray) {
     cSquare.pieceColor !== "blank" ||
     bSquare.pieceColor !== "blank" ||
     kingHasMoved(pieceColor) ||
-    rookHasMoved(pieceColor, `a${rank}`)
+    rookHasMoved(pieceColor, `a${rank}`) ||
+    !rookIsAt(pieceColor, `a${rank}`, boardSquaresArray)
   ) {
     return "blank";
   }
 
   return `c${rank}`;
+}
+function rookIsAt(pieceColor, squareId, board) {
+  const sq = board.find((e) => e.squareId === squareId);
+  return !!sq && sq.pieceType === "rook" && sq.pieceColor === pieceColor;
 }
 function kingHasMoved(pieceColor) {
   let result = moves.find(
