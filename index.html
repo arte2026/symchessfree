@@ -12,6 +12,17 @@
       <link rel="manifest" href="manifest.json">
       <link rel="icon" type="image/x-icon" href="favicon.ico">
 <meta name="theme-color" content="#000000">
+
+  <style>
+    html.skip-welcome #welcomeScreen { display: none !important; }
+  </style>
+  <script>
+  try {
+    if (sessionStorage.getItem("welcomeSeen")) {
+      document.documentElement.classList.add("skip-welcome");
+    }
+  } catch (e) {}
+</script>
   </head>
   <body>
    <div id="welcomeScreen" class="welcome-screen">
@@ -368,23 +379,24 @@
     initClock(5, 2);
   </script>
     <script src="main.js"></script>
+    
 	<script src="script.js"></script>
   <script>
-    //WELCOME
-const welcomeScreen = document.getElementById("welcomeScreen");
-const enterBtn = document.getElementById("enterBtn");
-
-enterBtn.addEventListener("click", () => {
-  welcomeScreen.classList.add("fade-out");
-
-  setTimeout(() => {
-    welcomeScreen.style.display = "none";
-  }, 900);
-
-});
-welcomeScreen.addEventListener("click", () => {
-  enterBtn.click();
-});
+// WELCOME: shown once per session (flag is set in sessionStorage)
+  (function () {
+    var screenEl = document.getElementById("welcomeScreen");
+    if (!screenEl) return;
+    if (document.documentElement.classList.contains("skip-welcome")) {
+      screenEl.style.display = "none";
+      return;
+    }
+    screenEl.addEventListener("click", function () {
+      try { sessionStorage.setItem("welcomeSeen", "1"); } catch (e) {}
+      screenEl.classList.add("fade-out");
+      setTimeout(function () { screenEl.style.display = "none"; }, 900);
+    });
+  })();
   </script>
+  
   </body>
 </html>

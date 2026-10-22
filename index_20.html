@@ -330,50 +330,6 @@
   </script>
 	
     <script src="main960ai3.js"></script>
-    <script>
-      function updateSquareDOM(squareId, pieceType, color) {
-  const square = document.getElementById(squareId);
-  // Remove existing piece if any
-  while (square.firstChild) {
-      // Keep coordinates if they exist (the numbers/letters on the squares)
-      if (square.firstChild.classList && square.firstChild.classList.contains('coordinate')) {
-          break; // Don't delete coordinates, but usually pieces are siblings.
-          // In your HTML, coordinates are inside the square div. 
-          // We should safely remove only elements with class "piece".
-      }
-      square.removeChild(square.firstChild);
-  }
-  
-  // Remove specifically "piece" elements to be safe (preserve coordinates)
-  const existingPiece = square.querySelector('.piece');
-  if (existingPiece) square.removeChild(existingPiece);
-
-  // Create new piece structure
-  // <div class="piece [type]" color="[color]"><img ...></div>
-  const pieceDiv = document.createElement('div');
-  pieceDiv.classList.add('piece', pieceType);
-  pieceDiv.setAttribute('color', color);
-  
-  // Construct Image Filename: e.g., "White-Rook.png" or "Black-Queen.png"
-  // Note: Your file naming convention varies slightly (e.g. "white-pawn.png" vs "White-Rook.png")
-  // We need to match your existing naming convention carefully.
-  let imgName = "";
-  let cCap = color.charAt(0).toUpperCase() + color.slice(1); // "White" or "Black"
-  let pCap = pieceType.charAt(0).toUpperCase() + pieceType.slice(1); // "Rook", "Knight"
-  
-  // Handle case sensitivity based on your files
-  if (pieceType === 'pawn' && color === 'white') imgName = "White-Pawn.png";
-  else if (pieceType === 'pawn' && color === 'black') imgName = "Black-Pawn.png"; // Your HTML has "Black-Pawn.png"
-  else imgName = `${cCap}-${pCap}2.png`; 
-
-  const img = document.createElement('img');
-  img.src = imgName;
-  img.alt = pieceType;
-  
-  pieceDiv.appendChild(img);
-  square.appendChild(pieceDiv);
-}
-    </script>
 	<script src="script.js"></script>
   </body>
 </html>

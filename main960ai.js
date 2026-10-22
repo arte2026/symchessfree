@@ -1769,7 +1769,7 @@ function updateSquareDOM(squareId, pieceType, color) {
   // Handle case sensitivity based on your files
   if (pieceType === 'pawn' && color === 'white') imgName = "White-Pawn.png";
   else if (pieceType === 'pawn' && color === 'black') imgName = "Black-Pawn.png"; // Your HTML has "Black-Pawn.png"
-  else imgName = `${cCap}-${pCap}.png`; 
+  else imgName = `${cCap}-${pCap}2.png`; 
 
   const img = document.createElement('img');
   img.src = imgName;
