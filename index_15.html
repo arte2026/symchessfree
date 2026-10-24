@@ -330,6 +330,25 @@
     initClock(5, 2);
   </script>
     <script src="main.js"></script>
+    <script>
+      function createChessPiece(pieceType, color, pieceClass) {
+  let pieceName =
+    color.charAt(0).toUpperCase() +
+    color.slice(1) +
+    "-" +
+    pieceType.charAt(0).toUpperCase() +
+    pieceType.slice(1) +
+    "4.png";
+  let pieceDiv = document.createElement("div");
+  pieceDiv.className = `${pieceClass} ${pieceType}`;
+  pieceDiv.setAttribute("color", color);
+  let img = document.createElement("img");
+  img.src = pieceName;
+  img.alt = pieceType;
+  pieceDiv.appendChild(img);
+  return pieceDiv;
+}
+    </script>
     <script src="ai-bot.js"></script>
     <script>
     setAIColor("white"); // bot plays White; human plays Black

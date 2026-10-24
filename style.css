@@ -402,6 +402,19 @@ button:active {
     text-shadow: 0px 0px 2px #422219, 3px 3px 5px rgba(0, 0, 0, 0.7);
   font-family: Armature Thin, sans-serif;
 }
+.popup-button7 {
+  margin: 10px;
+  background: linear-gradient(0deg, #193d42 0%, #275966 100%);
+  color: white;
+  border: 2px solid #422219;
+  
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  cursor: pointer;
+  padding: 8px 15px;
+  font-size: 20px;
+    text-shadow: 0px 0px 2px #422219, 3px 3px 5px rgba(0, 0, 0, 0.7);
+  font-family: Armature Thin, sans-serif;
+}
 .popup-button5 {
   margin: 10px;
   background: linear-gradient(0deg, #412542 0%, #673c68 100%);
@@ -448,6 +461,7 @@ button:active {
   border-radius: 15px;
   background-color: rgba(54, 54, 54, 0.8);
   color: gold;
+  text-align: center;
 }
 
 .clock.active {
@@ -541,3 +555,28 @@ margin:10px 15%;
 .active{
   display: block;
 }
+
+#puzzle-panel {
+      font-family: Armature Thin;
+      z-index: 40;
+      border-radius: 15px;
+  background-color: rgba(54, 54, 54, 0.8);
+  color: gold;
+      padding: 20px 10px; 
+      font-size: 20px; 
+      line-height: 1.35; 
+      box-sizing: border-box;
+      text-align: center;     
+      min-width: 200px; 
+      min-height: 100px;
+    }
+    
+    #puzzle-status.ok  { color: #8ee08e; }
+    #puzzle-status.bad { color: #ff9a8a; }
+    
+    .filter-btn.filter-active { outline: 3px solid #ffd54a; outline-offset: 2px; }
+    
+    @media (max-aspect-ratio: 1/1) {          /* portrait phones: panel goes under the board */
+      #puzzle-panel { left: 0; right: 0; top: auto; bottom: 0; width: auto; border-radius: 12px 12px 0 0; }
+      #puzzle-status { min-height: 0; }
+    }

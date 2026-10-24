@@ -539,7 +539,7 @@ function createChessPiece(pieceType, color, pieceClass) {
     "-" +
     pieceType.charAt(0).toUpperCase() +
     pieceType.slice(1) +
-    "3.png";
+    ".png";
   let pieceDiv = document.createElement("div");
   pieceDiv.className = `${pieceClass} ${pieceType}`;
   pieceDiv.setAttribute("color", color);
